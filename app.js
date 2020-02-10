@@ -25,8 +25,8 @@ app.use(bodyParser.urlencoded({extended: false}))
     }).listen(3000);
 });
 */
-app.use(express.static('/home/ubuntu/u/pub'))
-app.use(express.static('/home/ubuntu/u/pubb'))
+app.use(express.static('/home/ubuntu/newproject/pub'))
+app.use(express.static('/home/ubuntu/newproject/pubb'))
 app.use(morgan('short'))
 
 
@@ -71,7 +71,7 @@ if (currentTime.hour()>=15)
       return
     }
 
-    console.log("Inserted a new user with id: ", results.insertId);
+    console.log("Inserted a new user with an id: ", results.insertId);
 	res.end()
 
   })
@@ -144,7 +144,7 @@ var dateB=new Date(2020,first,last,23,59,50)
 
 })
 
-app.listen(3000,() =>{
+app.listen(2000,() =>{
         console.log("server running");
 })
 
