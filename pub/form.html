@@ -1,14 +1,47 @@
 <html>
-    <meta charset="utf-8">	
+    <meta charset="utf-8">
+    <meta name="viewprot" content="width=device-with">
+
     <title> 홍익대학교 가마신청</title> 	
+    <head>
+	    
+    <style>
+       
+	.nav-title{
+         font-size: 60px;
+	 font-weight: bold;	 
+       }
+
+       .nav-right-items{
+	  height: 70px;     
+       	  display: flex;
+   	  margin-right: auto;		  
+       }
+    </style>
+
+    </head>
+
     <body>
-        <div>
-            이름과 설명을 적으세요 됩니까?
-	    <hr/>
+	
+	<div class ="nav-title"> 홍익대학교 가마신청   
+	</div>
+		
+
+		<a href="http://15.165.94.28:2000/forma.html"> 신청현황</a>
+		<br>
+		<br>
+		<hr/>
+	    
+	</div>
+	<div>
+		이름과 요청사항을 적으세요.
             <form action="/user_create" method="POST">
                 <input placeholder="name" name="create_first_name"/>
                 <button>Submit</button>
             </form>
+
+
+
 	</div>
     </body>
 </html>
