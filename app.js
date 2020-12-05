@@ -1,7 +1,7 @@
 const express =require('express')
 const app= express()
 const morgan= require('morgan')
-const mysql= require('mysql')
+const mysql= require("mysql");
 //const utf8= require('utf8')
 let moment =require('moment')
 
@@ -25,8 +25,8 @@ app.use(bodyParser.urlencoded({extended: false}))
     }).listen(3000);
 });
 */
-app.use(express.static('/home/ubuntu/newproject/pub'))
-app.use(express.static('/home/ubuntu/newproject/pubb'))
+app.use(express.static('/home/ubuntu/save/pub'))
+app.use(express.static('/home/ubuntu/save/pubb'))
 app.use(morgan('short'))
 
 
@@ -35,7 +35,8 @@ function getConnection() {
     host: 'localhost',
     user: 'root',
     database: 'info',
-    password: 'han456852',
+    password: 'Han456852*',
+  //  port:"3000",	  
   })
 	if(err){
 		console.log("Fail"+err)
@@ -61,7 +62,7 @@ app.post('/user_create', (req, res) => {
 
 
 
-if (currentTime.hour()>=15) 
+if (currentTime.hour()>=7) 
 	{
   const queryString = "INSERT INTO topic (name,created) VALUES (?,Now())"
   getConnection().query(queryString, [fname], (err, results, fields) => {
@@ -119,7 +120,7 @@ app.post('/user', (req, res) =>{
 		host:'localhost',
 		user:'root',
 		database:'info',
-		password:'han456852'
+		password:'Han456852*'
 	})
         const first=(req.body.create_first_name)-1;
 	const last = req.body.create_last_name
@@ -143,8 +144,9 @@ var dateB=new Date(2020,first,last,23,59,50)
 
 
 })
+app.set('port',process.env.PORT || 9000);
 
-app.listen(2000,() =>{
+app.listen(9000,() =>{
         console.log("server running!");
 })
 
