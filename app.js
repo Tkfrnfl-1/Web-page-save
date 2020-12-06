@@ -13,18 +13,6 @@ let moment =require('moment')
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({extended: false}))
-
-/*fs.readFile('/home/ubuntu/u/pub/form.html', function (err, html) {
-    if (err) {
-        throw err;
-    }
-    http.createServer(function(request, response) {
-        response.writeHeader(200, {"Content-Type": "text/html"});
-        response.write(html);
-        response.end();
-    }).listen(3000);
-});
-*/
 app.use(express.static('/home/ubuntu/save/pub'))
 app.use(express.static('/home/ubuntu/save/pubb'))
 app.use(morgan('short'))
@@ -47,7 +35,7 @@ function getConnection() {
 
 
 
-app.post('/user_create', (req, res) => {
+app.post('/user_create', (req, res) => {//getting username
   console.log("Trying to create a new user...")
   console.log("How do we get the form data???")
 
@@ -62,7 +50,7 @@ app.post('/user_create', (req, res) => {
 
 
 
-if (currentTime.hour()>=7) 
+if (currentTime.hour()>=6) //server time limit
 	{
   const queryString = "INSERT INTO topic (name,created) VALUES (?,Now())"
   getConnection().query(queryString, [fname], (err, results, fields) => {
@@ -73,7 +61,8 @@ if (currentTime.hour()>=7)
     }
 
     console.log("Inserted a new user with an id: ", results.insertId);
-	res.end()
+	res.send('<script type="text/javascrpit"> alert("등록성공");</script><a href="javascript:history.back()" class="btn btn-primary">Back</a> ');
+
 
   })
 	}
@@ -84,34 +73,6 @@ if (currentTime.hour()>=7)
 	}
 		//.listen(3000);
 })
-/*
-function getConnection() {
-  return mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    database: 'info',
-    password: 'han456852',	  
-  })
-}
-*/
-/*app.get('/user/:num',(req, res)=>{
-        console.log("fetching :" +req.params.num)
-
-        const connection= mysql.createConnection({
-                host:'localhost',
-                user:'root',
-                database:'info',
-                password:'Han456852*',
-                port:3000
-        })
-
-        connection.query("Select * from topic", (err,rows,fields) =>{
-                console.log ("i think we fectched success")
-                res.json(rows)
-        })
-})
-*/
-
 
 app.post('/user', (req, res) =>{
 	console.log("fetching id:" + req.params.id)
