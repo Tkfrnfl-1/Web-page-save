@@ -1,0 +1,77 @@
+
+<html>
+    <head>
+	<center>	
+       <p style="font-size:200%;"> 신청현황</p>
+        </center>
+    </head>
+    <style>
+ 		*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  color: #333;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+table {
+  max-width: 960px;
+  margin: 80px auto;
+}
+
+caption {
+  font-size: 18px;
+  font-weight: 400;
+  padding: 12px 0;
+}
+
+thead th {
+  background: #0c3390;
+  color: #fff;
+  font-weight: initial;
+}
+
+tr { background: #f1f1f1; }
+
+tr:nth-child(2n) { background: #e0e0e0; }
+
+th, td {
+  text-align: left;
+  padding: 24px;
+}
+
+tfoot tr { background: none; }
+
+tfoot td {
+  padding: 12px 2px;
+  font-style: italic;
+  color: #8a97a0;
+}
+    </style>
+
+    <body>
+	
+	<table>
+           <tr>
+		<td>No</td>
+		<td>Name</td>
+		<td>Time</td>
+	   </tr>
+	   
+	   	
+	    <% for(var i=0; i<obj.MyArray.length;i++){%>
+		<tr>	    
+		<td><%=obj.MyArray[i].id%></td>
+		<td><%=obj.MyArray[i].name%></td>
+		<td><%=obj.MyArray[i].created%></td>
+		</tr>
+	<% } %>
+	</table>
+	<a href = "http://50.19.236.177/form.html">home </a>
+    </body>
+</html>
